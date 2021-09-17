@@ -1,0 +1,29 @@
+{
+  "name": "R Index",
+  "author": "Shahriar Ahmed Shovon",
+  "description": "According to Enayet Chowdhury, YouTube subscriber number is not sufficient to judge a channel's growth. So he proposed a new system called 'R Index'. Since I am a big fan of Enayet Chowdhury and his content, I made this chrome extension which show 'R Index' along with subscriber count.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "R Index",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["./foreground.js"]
+    }
+  ],
+  "permissions": ["activeTab", "tabs", "scripting"],
+  "host_permissions": ["https://*.youtube.com/*"]
+}
